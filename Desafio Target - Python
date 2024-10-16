@@ -1,0 +1,93 @@
+## 1) Observe o trecho de código abaixo: int INDICE = 13, SOMA = 0, K = 0;
+##Enquanto K < INDICE faça { K = K + 1; SOMA = SOMA + K; }
+##Imprimir(SOMA);
+##Ao final do processamento, qual será o valor da variável SOMA?
+
+INDICE = 13
+SOMA = 0
+K = 0
+
+while (K < INDICE):
+    K =  K+1
+    SOMA = SOMA + K
+
+print(SOMA)
+
+##2) Dado a sequência de Fibonacci, onde se inicia por 0 e 1 e o próximo valor sempre será a soma dos 2 valores anteriores (exemplo: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34...), escreva um programa na linguagem que desejar onde, informado um número, ele calcule a sequência de Fibonacci e retorne uma mensagem avisando se o número informado pertence ou não a sequência.
+
+##IMPORTANTE: Esse número pode ser informado através de qualquer entrada de sua preferência ou pode ser previamente definido no código;
+
+n = int(input("Qual numero sera verificado na sequencia de Fibonacci? "))
+a1 = 0
+a2 = 1
+if(n == a1 or n == a2 ):
+    print("O numero informado pertence a squencia de Fibbonaci")
+else:
+    count = 3
+    while count <= count + 1:
+            a3 = a1 + a2
+            a2 = a1
+            a1 = a3
+            count += 1
+            if n == a3:
+                print("O numero informado pertence a squencia de Fibbonaci")
+                break
+            elif a3 > n:
+                 print("O numero nao pertence a sequencia de Fibonnaci")
+                 break                 
+    print(a3)
+
+##3) Dado um vetor que guarda o valor de faturamento diário de uma distribuidora, faça um programa, na linguagem que desejar, que calcule e retorne:
+##• O menor valor de faturamento ocorrido em um dia do mês;
+##• O maior valor de faturamento ocorrido em um dia do mês;
+##• Número de dias no mês em que o valor de faturamento diário foi superior à média mensal.
+##
+##IMPORTANTE:
+##a) Usar o json ou xml disponível como fonte dos dados do faturamento mensal;
+##b) Podem existir dias sem faturamento, como nos finais de semana e feriados. Estes dias devem ser ignorados no cálculo da média;
+
+import random
+d = 1
+vetor = []
+while (d <= 30):
+    r = int(random.randint(0, 15000))
+    numero = r
+    vetor.append(numero)
+    d += 1 
+media = sum(vetor) / len(vetor)
+print(vetor)
+print(min(vetor))
+print(max(vetor))
+quantidade = sum(1 for x in vetor if x > media)
+print(quantidade)
+
+##4) Dado o valor de faturamento mensal de uma distribuidora, detalhado por estado:
+##• SP – R$67.836,43
+##• RJ – R$36.678,66
+##• MG – R$29.229,88
+##• ES – R$27.165,48
+##• Outros – R$19.849,53
+##
+##Escreva um programa na linguagem que desejar onde calcule o percentual de representação que cada estado teve dentro do valor total mensal da distribuidora.  
+
+sp = 67836.43
+rj = 36678.66
+mg = 29229.88
+es = 27165.48
+outros = 19849.53
+
+soma_total = sp + rj + mg + es + outros
+print(f"O percentual arrecadado de SP é de {(sp*100)/soma_total:.2f}%")
+print(f"O percentual arrecadado de RJ é de {(rj*100)/soma_total:.2f}%")
+print(f"O percentual arrecadado de MG é de {(mg*100)/soma_total:.2f}%")
+print(f"O percentual arrecadado de ES é de {(es*100)/soma_total:.2f}%")
+print(f"O percentual arrecadado de OUTROS é de {(outros*100)/soma_total:.2f}%")
+
+##5) Escreva um programa que inverta os caracteres de um string.
+##
+##IMPORTANTE:
+##a) Essa string pode ser informada através de qualquer entrada de sua preferência ou pode ser previamente definida no código;
+##b) Evite usar funções prontas, como, por exemplo, reverse;
+
+strng = input("Insira uma string ")
+print(strng[::-1])
